@@ -58,10 +58,10 @@ const data = [
   }
 ];
 
-data.forEach(createdBox);
+data.forEach(createBox);
 
 // Create speech boxes
-function createdBox(item) {
+function createBox(item) {
   const box = document.createElement('div');
 
   const { image, text } = item;
@@ -69,18 +69,18 @@ function createdBox(item) {
   box.classList.add('box');
 
   box.innerHTML = `
-    <img src="${image}" alt="${text} />
+    <img src="${image}" alt="${text}"/>
     <p class="info">${text}</p>
   `;
 
   box.addEventListener('click', () => {
     setTextMessage(text);
-    speekText();
+    speakText();
 
     // Add active effect
     box.classList.add('active');
     setTimeout(() => box.classList.remove('active'), 800);
-  })
+  });
 
   main.appendChild(box);
 }
@@ -109,8 +109,7 @@ function setVoice(e) {
 // Read text button
 readBtn.addEventListener('click', () => {
   setTextMessage(textarea.value);
-  speakText()
+  speakText();
 });
 
 getVoices();
-
