@@ -89,7 +89,20 @@ function createBox(item) {
 const message = new SpeechSynthesisUtterance();
 
 // Store voices
-let voice = [];
+let voices = [];
+
+function getVoices() {
+  voices = speechSynthesis.getVoices();
+
+  voices.forEach(voice => {
+    const option = document.createElement('option');
+    
+    option.value = voice.name;
+    option.innerText = `${voice.name} ${voice.lang}`;
+
+    voicesSelect.appendChild(option);
+  });
+}
 
 // Set text
 function setTextMessage(text) {
