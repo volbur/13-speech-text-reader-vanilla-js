@@ -97,3 +97,9 @@ function speakText() {
 function setVoice(e) {
   message.voice = voices.find(voice => voice.name === e.target.value);
 }
+
+// Read text button
+readBtn.addEventListener('click', () => {
+  setTextMessage(textarea.value);
+  speakText()
+})
