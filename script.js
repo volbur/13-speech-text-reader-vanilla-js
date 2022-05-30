@@ -58,6 +58,8 @@ const data = [
   }
 ];
 
+data.forEach(createdBox);
+
 // Create speech boxes
 function createdBox(item) {
   const box = document.createElement('div');
@@ -83,6 +85,12 @@ function createdBox(item) {
   main.appendChild(box);
 }
 
+// Init speech synth
+const message = new SpeechSynthesisUtterance();
+
+// Store voices
+let voice = [];
+
 // Set text
 function setTextMessage(text) {
   message.text = text;
@@ -102,4 +110,7 @@ function setVoice(e) {
 readBtn.addEventListener('click', () => {
   setTextMessage(textarea.value);
   speakText()
-})
+});
+
+getVoices();
+
